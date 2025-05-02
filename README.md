@@ -95,34 +95,58 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Tinybird Instructions
 
+This project is now compatible with Tinybird Forward, which means that you can also test it locally.
 To prepare the Tinybird database, follow these steps:
 
-0. We use `pipenv` to manage our Python dependencies. If you don't have it installed, you can install it using the following command:
-   ```sh
-   pkgx pipenv
-   ```
-1. Download the Tinybird CLI from [here](https://www.tinybird.co/docs/cli.html) and install it on your system.
-2. After authenticating with the Tinybird CLI, navigate to the `lib/tinybird` directory:
+0. To install and use Tinybird Forward on your machine, you need to have the following prerequisites:
+
+    a. A free Tinybird account
+    b. A container runtime, like Docker or Orbstack
+    c. Linux or macOS
+
+1. To install Tinybird Forward, run the following command: 
+```shell
+curl https://tinybird.co | sh
+```
+
+2. Navigate to the `lib/tinybird` directory:
    ```sh
    cd lib/tinybird
    ```
-3. Push the necessary data sources using the following command:
-   ```sh
-   tb push datasources/*
-   tb push endpoints/get_*
-   ```
-4. Don't forget to set the `TINYBIRD_TOKEN` with the appropriate rights in your `.env` file.
+
+3. Authenticate into your Tinybird workspace: 
+```shell
+tb login
+```
+
+4. Start your local environment, run the following command: 
+```shell
+tb local start
+```
+
+5. To deploy the necessary resources (data sources and pipes) locally:
+```shell
+tb deploy
+```
+
+6. [Optional] - To check the deployed resources in the local UI, run the following command: 
+```shell
+tb open
+```
+
+7. [Optional] - To deploy the resources to the cloud, run the following command:
+```shell
+tb --cloud deploy
+```
+
+8. Don't forget to set the `TINYBIRD_TOKEN` with the appropriate rights in your `.env` file, along with your local host in `TINYBIRD_HOST`. Your can get your token by running the following command:
+```shell
+tb token ls
+```
 
 #### Updating Tinybird
 
-```sh
-pipenv shell
-## start: pkgx-specific
-cd ..
-cd papermark
-## end: pkgx-specific
-pipenv update tinybird-cli
-```
+To update Tinybird FWD cli, run the following command: tb update.
 
 ## Contributing
 

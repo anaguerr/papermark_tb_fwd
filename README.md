@@ -119,7 +119,7 @@ curl https://tinybird.co | sh
 tb login
 ```
 
-4. Start your local environment, run the following command: 
+4. Start your local environment: 
 ```shell
 tb local start
 ```
@@ -146,7 +146,10 @@ tb token ls
 
 #### Updating Tinybird
 
-To update Tinybird FWD cli, run the following command: tb update.
+To update Tinybird FWD cli, run the following command: 
+```shell
+tb update
+```
 
 ## Contributing
 
